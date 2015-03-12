@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.china.calendar"
+      android:versionCode="8"
+      android:versionName="1.8">
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".MainActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mobclick.android.UmengFeedback"></activity>
+        
+         <receiver android:name=".CalendarWidget"
+			android:label="@string/widget_text"
+			android:icon="@drawable/icon" >
+			<intent-filter>
+			<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider" 
+			android:resource="@xml/appwidget_info" />
+		</receiver>
+		
+		<receiver android:name="MyTimeSetReceiver">        
+            <intent-filter>
+                 <action android:name="android.intent.action.TIME_SET"/>
+                 <category android:name="android.intent.category.HOME" /> 
+            </intent-filter>       
+        </receiver>
+       
+       <!-- 
+		<meta-data android:value="f0d9217f27481078" android:name="UmAd_APP_SEC" />
+  		<meta-data android:value="adf10b97d4cd7fff" android:name="UmAd_APP_ID" />
+  		 -->
+  		<!--有盟的id  --> 
+		<meta-data android:value="4cafc39e3ea7a36cd306abea" android:name="UMENG_APPKEY"/>
+    </application>
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-sdk android:minSdkVersion="3" />
+
+</manifest> 
